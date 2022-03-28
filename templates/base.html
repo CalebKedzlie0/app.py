@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>smile | base</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"/>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Smile Cafe</h1>
+
+        <nav>
+            <a href="/">Home</a> &#8226;
+            <a href="/menu">Menu</a> &#8226;
+            <a href="/contact">Contact</a> &#8226;
+            <a href="/login">Login</a>
+        </nav>
+
+        <h1>{% block pageheading %}{%endblock%}</h1>
+    </div>
+    <div>
+        <main>
+            {% block main %}
+            {% endblock %}
+        </main>
+    </div>
+</body>
+
+</html>

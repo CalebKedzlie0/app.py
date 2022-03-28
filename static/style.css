@@ -1,0 +1,160 @@
+body {
+    background-color: #fffcfc;
+
+}
+
+h1 {
+    flex:1;
+    font-family: "Century Schoolbook";
+    text-align: center;
+    color: #000000;
+    font-size: x-large;
+
+}
+
+h2 {
+    flex:1;
+    font-family: "Century Schoolbook";
+    text-align: center;
+    color: darkslateblue;
+    font-size: x-large;
+}
+
+div {
+    line-height: 20px;
+    text-align: center;
+    font-family: "Baskerville Old Face";
+}
+
+.container {
+    display: flex;
+    position: relative;
+    text-align: center;
+    border: 2px dashed #fff2cb;
+    background-color: #ffd500;
+    color: #000000;
+}
+
+p {
+    color: darkgray;
+}
+
+a:link {
+    flex: 2;
+    text-align: center;
+    font-family: 'Consolas';
+
+    color: #95ff02;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #02e04d;
+}
+
+a:hover {
+    color: #eeff00;
+}
+
+a:active {
+    color: lightgreen;
+}
+
+img {
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    padding: 1px;
+    width: 200px;
+    height:100px;
+    background-position:top;
+
+}
+
+nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: x-large;
+
+}
+
+.home {
+    width:800px;
+    height:863px;
+    margin: auto;
+    padding-top: 50px;
+    background-color: #ffcc92;
+}
+
+.product-box {
+    float: left;
+    margin: auto;
+    width: 300px;
+    height: 350px;
+    padding-inline: 5px;
+    padding-block: 20px;
+    background-color: #fff0db;
+    border: 2px solid #ffdfad;
+    border-radius: 10px;
+
+}
+
+.contact {
+    width: 800px;
+    height: 863px;
+    margin: auto;
+    padding-top: 50px;
+    background-color: #ffb961;
+}
+
+form {
+    width:800px;
+    height:863px;
+    margin: auto;
+    padding-top: 50px;
+    background-color: #f6b25a;
+}
+
+
+.resize {
+    text-allign: centre;
+    width: 300px;
+    height: 80px;
+}
+
+.button-group {
+    padding: 2px;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+.centered {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: xxx-large;
+}

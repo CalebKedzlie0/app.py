@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block pageheading %} Menu {% endblock %}
+
+{% block main %}
+    {% for product in products %}
+        <div class="product-box"> <!-- div with class product-box and colored by id. -->
+            <h3> {{ product[1] }}</h3> <!-- name -->
+            <div class="resize"><p> {{ product[2] }} </p></div> <!-- description -->
+            <p> <strong> Volume: </strong> {{ product[3] }}</p> <!-- volume -->
+            <p> <strong> Price: </strong> ${{ "{:.2f}".format(product[4]) }}</p> <!-- price -->
+            <img src="static/images/{{ product[5] }}.jpg"> <!-- image -->
+        </div>
+    {% endfor %}
+{% endblock %}}
