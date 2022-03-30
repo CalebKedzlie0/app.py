@@ -44,20 +44,20 @@ a:link {
     text-align: center;
     font-family: 'Consolas';
 
-    color: #95ff02;
+    color: #020fff;
     text-decoration: none;
 }
 
 a:visited {
-    color: #02e04d;
+    color: #0c5dff;
 }
 
 a:hover {
-    color: #eeff00;
+    color: #00ffff;
 }
 
 a:active {
-    color: lightgreen;
+    color: #909dee;
 }
 
 img {
@@ -80,8 +80,8 @@ nav {
 }
 
 .home {
-    width:800px;
-    height:863px;
+    width: 50%;
+    height: 863px;
     margin: auto;
     padding-top: 50px;
     background-color: #ffcc92;
@@ -101,30 +101,55 @@ nav {
 }
 
 .contact {
-    width: 800px;
+    width: 50%;
     height: 863px;
     margin: auto;
     padding-top: 50px;
     background-color: #ffb961;
 }
 
-form {
-    width:800px;
+.myform {
+    width:50%;
     height:863px;
     margin: auto;
     padding-top: 50px;
     background-color: #f6b25a;
 }
 
+.form-group {
+    padding-top: 3rem;
+}
 
-.resize {
-    text-allign: centre;
-    width: 300px;
-    height: 80px;
+.form-label {
+    width: 30%;
+    text-align: right;
+    float: left;
+    padding: 5px;
+}
+
+.form-element {
+    width: 40%;
+    float: left;
 }
 
 .button-group {
-    padding: 2px;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.button-group input{
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.form-group input{
+    padding: 0.2rem;
+    width: 100%;
+}
+
+.resize {
+    width: 300px;
+    height: 80px;
 }
 
 .bottom-left {
