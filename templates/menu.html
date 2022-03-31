@@ -8,7 +8,7 @@
             <h3> {{ product[1] }}</h3> <!-- name -->
             <div class="resize"><p> {{ product[2] }} </p></div> <!-- description -->
             <p> <strong> Volume: </strong> {{ product[3] }}</p> <!-- volume -->
-            <p> <strong> Price: </strong> ${{ "{:.2f}".format(product[4]) }}</p> <!-- price -->
+            <p> <strong> Price: </strong> {{ "${:.2f}".format(product[4]) }}</p> <!-- price -->
             <img src="static/images/{{ product[5] }}.jpg"> <!-- image -->
         </div>
     {% endfor %}
