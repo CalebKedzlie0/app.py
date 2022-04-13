@@ -15,7 +15,11 @@
             <a href="/">Home</a> &#8226;
             <a href="/menu">Menu</a> &#8226;
             <a href="/contact">Contact</a> &#8226;
-            <a href="/login">Login</a>
+            {% if logged_in %} <!-- Login or logout button depending on account status -->
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a>
+            {% endif %}
         </nav>
         <h1>{% block pageheading %}{% endblock %}</h1>
     </div>

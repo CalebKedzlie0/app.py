@@ -6,7 +6,7 @@ from flask_bcrypt import bcrypt
 DB_NAME = "C:/Users/18173/OneDrive - Wellington College/13DTS/Python/Flask/smile.db"
 
 app = Flask(__name__)
-app.secret_key = "h172djaooqe7853nvbze91udha5iq7w9egnzlp123"
+app.secret_key = "h172django7853nvme91Audra5iq7w9Unzip123"
 
 
 def create_connection(db_file):
@@ -21,7 +21,7 @@ def create_connection(db_file):
 
 @app.route('/')
 def render_homepage():
-    return render_template('home.html')
+    return render_template('home.html', logged_in=is_logged_in())
 
 
 @app.route('/menu')
@@ -39,12 +39,12 @@ def render_menu_page():
     product_list = cur.fetchall()
     con.close()
 
-    return render_template("menu.html", products=product_list)
+    return render_template("menu.html", products=product_list, logged_in=is_logged_in())
 
 
 @app.route('/contact')
 def render_contact_page():
-    return render_template('contact.html')
+    return render_template('contact.html', logged_in=is_logged_in())
 
 
 @app.route('/logout')
@@ -52,7 +52,7 @@ def log_out():
     print(list(session.keys()))
     [session.pop(key) for key in list(session.keys())]
     print(list(session.keys()))
-    return redirect('/?message=See+you+soon')
+    return redirect(request.referrer + '/?message=See+you+soon')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -75,8 +75,8 @@ def render_login_page():
         except IndexError:
             return redirect("/login?error=Email+invalid+or+password+incorrect")
 
-        #if not bcrypt.check_password_hash(db_password, password):
-            #return redirect(request.referrer + "?error=Email+invalid+or+password+incorrect")
+        # if not bcrypt.check_password_hash(db_password, password):
+            # return redirect(request.referrer + "?error=Email+invalid+or+password+incorrect")
 
         if db_password is not password:
             return redirect(request.referrer + "?error=Email+invalid+or+password+incorrect")
@@ -86,7 +86,7 @@ def render_login_page():
         session['first_name'] = first_name
         print(session)
         return redirect('/')
-    return render_template('login.html', logged_in=is_logged_in())
+    return render_template('login.html', logged_in=is_logged_in(), fname=session.get("fname"), lname=session.get("lname"))
 
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -94,8 +94,8 @@ def render_signup_page():
     if request.method == 'POST':
         # Gets all the variables the user inputted in the signup form.
         print(request.form)
-        firstname = request.form.get('fname').strip().lower()
-        lastname = request.form.get('lname').strip().lower()
+        firstname = request.form.get('fname').strip().title()
+        lastname = request.form.get('lname').strip().title()
         email = request.form.get('email').strip().lower()
         password = request.form.get('pass').strip()
         password2 = request.form.get('pass2').strip()
@@ -106,7 +106,7 @@ def render_signup_page():
         if len(password) < 8:
             return redirect('/signup?error=Passwords+must+be+8+characters+or+more')
 
-        #hashed_password = bcrypt.generate_password_hash(password)
+        # hashed_password = bcrypt.generate_password_hash(password)
 
         # Creates the database connection.
         con = create_connection(DB_NAME)
@@ -120,9 +120,11 @@ def render_signup_page():
         try:
             cur.execute(query, (firstname, lastname, email, password))
         except sqlite3.IntegrityError:
-            return redirect('/signup?error=email+is+already+in+use')
+            return redirect('/signup?error=Email+is+already+in+use')
+
         con.commit()
         con.close()
+        return redirect('/')
 
     return render_template('signup.html')
 
